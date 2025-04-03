@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡単字幕ツール</title>
+    <style>
+        /* 基本的なスタイル */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; /* 画面全体の高さを確保 */
+            display: flex;
+            justify-content: center; /* 字幕を中央揃え */
+            align-items: flex-end;   /* 字幕を画面下部に配置 */
+            font-family: sans-serif;
+            /* 背景画像のスタイル */
+            
+            background-size: contain;
+            background-repeat: no-repeat;
+            
+            background-position: center;
+            background-repeat: no-repeat;
+            /* 背景画像の切り替えを滑らかにするアニメーション */
+            transition: background-image 0.5s ease-in-out;
+        }
+
+        .zimaku {
+            background-color: rgba(0, 0, 0, 0.7); /* 半透明の黒背景 */
+            color: white;                         /* 白文字 */
+            padding: 15px 30px;                   /* 内側の余白 */
+            border-radius: 5px;                   /* 角丸 */
+            margin-bottom: 50px;                  /* 画面下からの距離 */
+            font-size: 1.8em;                     /* 文字サイズ */
+            text-align: center;                   /* 文字中央揃え */
+            min-height: 1.9em;                    /* 高さが変わらないよう最低限の高さを確保 */
+            max-width: 80%;                       /* 横幅が広がりすぎないように */
+            min-width: 50%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 字幕の元データ (JavaScriptで処理後は空になります) -->
+    <div class="zimaku">
+        <p >これは最初の字幕のテキストです。</p>
+        <p data-duration="4">このテキストは少し長めに表示されます。</p>
+        <!-- ↓ 背景画像を変更するimgタグ (画像パスは適切に設定してください) -->
+        <img src="image (1).png" alt="背景1に変更">
+        <p >背景画像が変わりましたね！</p>
+        <img src="image (2).png" alt="背景2に変更">
+        <p >2枚目の画像です</p>
+        <img src="image3.png" alt="背景3に変更">
+        <p >3枚目です</p>
+        <!-- 背景画像をリセットしたい場合 -->
+        <img data-duration="1" src="" alt="背景リセット">
+         <p data-duration="3">背景がリセットされました。</p>
+         <p data-duration="3">以上です</p>
+    </div>
+
+    <!-- JavaScriptファイルを読み込む -->
+    <script src="script.js"></script>
+
+</body>
+</html>
